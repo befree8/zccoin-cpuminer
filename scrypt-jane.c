@@ -186,16 +186,16 @@ scrypt(const uint8_t *password, size_t password_len, const uint8_t *salt, size_t
 
 
 // yacoin: increasing Nfactor gradually
-const unsigned char minNfactor = 4;
+const unsigned char minNfactor = 12;
 const unsigned char maxNfactor = 30;
 
 unsigned char GetNfactor(unsigned int nTimestamp) {
     int l = 0;
 
-    if (nTimestamp <= 1367991200)
-        return 4;
+    if (nTimestamp <= 1375817223)
+        return minNfactor;
 
-    unsigned long int s = nTimestamp - 1367991200;
+    unsigned long int s = nTimestamp - 1375817223;
     while ((s >> 1) > 3) {
       l += 1;
       s >>= 1;
